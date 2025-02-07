@@ -140,6 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let tin = citizen.tin.value;
 
         let amt = Math.floor(Math.random() * 100000).toFixed(2);
+        
+        localStorage.setItem("amt", amt);
 
         populateDashboard_(name, email, city, addr, tin, amt, bank);
       }, 5000);
@@ -196,6 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
     total_charge_amt.textContent = `Total charges: $${total_charge_amt_}`;
     
     popup_charge_amt.textContent = `$${total_charge_amt_}`;
+    
+    location.reload();
   }
   
   function populateDashboard(){
@@ -203,9 +207,59 @@ document.addEventListener("DOMContentLoaded", () => {
         
     const saved = citizenData.find(data => data.name == nameStr);
     
+    const name_text = document.querySelector(".name");
+    
     const email_text = document.querySelector(".email .txt");
     
+    const city_text = document.querySelector(".city .txt");
+
+    const addr_text = document.querySelector(".address .txt");
+
+    const bank_text = document.querySelector(".bank .txt");
+
+    const tin_text = document.querySelector(".tinId .txt");
+
+    const amt_text = document.querySelector(".amt");
+    
+    const fee_amt = document.querySelector(".fee-amt");
+    
+    const service_charge_amt = document.querySelector(".service-charge-amt");
+    
+    const total_charge_amt = document.querySelector(".total-charge-amt");
+    
+    const popup_charge_amt = document.querySelector(".popup-charge-amt");
+    
+    name_text.textContent = saved.name;
+    
     email_text.textContent = saved.email;
+    
+    city_text.textContent = saved.city;
+
+    addr_text.textContent = saved.addr;
+
+    bank_text.textContent = saved.bank;
+
+    tin_text.textContent = saved.tin;
+    
+    const amt = localStorage.getItem("amt");
+    
+    console.log(amt)
+    
+    amt_text.textContent = `Claim amount: $${amt}`;
+    
+    let fee_amt_ = 1.5/100 * amt;
+    
+    fee_amt.textContent = `Tarrif fee: $${fee_amt_.toFixed(2)}`;
+    
+    let service_charge_amt_ = 0.3/100 * amt;
+    
+    service_charge_amt.textContent= `Service charge: $${service_charge_amt_.toFixed(2)}`;
+    
+    let total_charge_amt_ = fee_amt_ + service_charge_amt_;
+    
+    total_charge_amt.textContent = `Total charges: $${total_charge_amt_}`;
+    
+    popup_charge_amt.textContent = `$${total_charge_amt_}`;
   }
   
   populateDashboard();
@@ -237,4 +291,21 @@ document.addEventListener("DOMContentLoaded", () => {
       main.addEventListener("click", removeMainClick);
     }
   }
+  
+  // Confirmation codes
+  const confirmationCodes = ["345100FZC", "777345YMC", "280000SDF", "893943AAC"];
+  
+  const confirm_payment = document.querySelector(".confirm-payment");
+  
+  const proceedBtn = document.querySelector(".proceed");
+  
+  proceedBtn.addEventListener("click", () => {
+    if (confirmationCodes.some(value => confirm_payment.value.includes(value))) {
+      alert("Confirmation successful! 🎉");
+    } else if (confirm_payment.value == "") {
+      alert("Please enter a confirmation code! 😉")
+    } else {
+      alert("Wrong code, try again! ⛔");
+    }
+  });
 });

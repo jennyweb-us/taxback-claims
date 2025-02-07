@@ -11,6 +11,7 @@ body {
   box-sizing: border-box;
   border: 0;
   outline: 0;
+  font-family: "sans", sans-serif;
 }
 
 body {
@@ -128,7 +129,7 @@ header .sitename {
 }
 
 .header {
-  background: #5270FF;
+  background: #20287B;
   color: #ffffff;
   min-height: 60px;
   padding: 14px;
@@ -149,11 +150,11 @@ header .sitename {
 .loader {
   background: #ffffff;
   box-shadow: 0 0 12px 4px rgba(0,0,0,0.05);
-  width: 80%;
+  width: 90%;
   height: auto;
-  padding: 15px;
-  margin: 10%;
-  margin-top: 50%;
+  padding: 5%;
+  margin: 5%;
+  margin-top: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,7 +173,8 @@ header .sitename {
 }
 
 .loader .rotate  {
-  font-size: 30px;
+  color: #20287B;
+  font-size: 50px;
   animation: 1s rotate linear infinite;
 }
 
@@ -215,7 +217,6 @@ header .sitename {
   text-align: center;
   font-weight: 300;
   font-size: 16px;
-  
   line-height: 1.5;
 }
 
@@ -260,14 +261,17 @@ header .sitename {
 
 .landing form input[type="submit"] {
   background: #20287B;
+  box-shadow: 0 0 0 2px #20287B;
   color: #ffffff;
   width: 100%;
   border: 0;
   padding: 9px 16px!important;
   margin-top: 10px;
   margin-bottom: 0;
-  font-weight: 400;
-  letter-spacing: 0.3px;
+  border: 1px solid #fff;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
   cursor: pointer;
 }
 
@@ -278,6 +282,17 @@ main {
   padding: 80px 15px;
   position: relative;
   z-index: 1;
+}
+
+main::before {
+  content: "";
+  background: #20287B90;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .dashboard {
@@ -331,7 +346,6 @@ main {
 
 .fund-details {
   font-size: 15px;
-  font-family: "incon", monospace!important;
   letter-spacing: -0.5px;
   border-radius: 4px;
   width: 100%;
@@ -352,6 +366,10 @@ main {
   position: absolute;
   top: 0;
   left: -12px;
+}
+
+.fund-details span {
+  font-family: "incon", monospace!important;
 }
 
 .fund-agreement {
@@ -547,7 +565,6 @@ footer {
 .footer-links a {
   color: #E8F2FF;
   font-size: 16px;
-  font-family: "msd", serif;
   text-decoration: none;
 }
 
@@ -558,6 +575,5 @@ footer {
 
 .footer-attribution span {
   font-size: 16px;
-  font-family: "msd", serif;
   opacity: .5;
 }
