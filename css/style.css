@@ -272,7 +272,7 @@ header .sitename {
 }
 
 main {
-  background: url("../img/wavy-bg.jpg") no-repeat center / cover;
+  background: url("../img/wavy_lines_pattern_background.jpg") no-repeat center center / cover;
   width: 100%;
   min-height: 90vh;
   padding: 80px 15px;
