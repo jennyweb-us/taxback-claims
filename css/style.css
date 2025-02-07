@@ -273,7 +273,7 @@ header .sitename {
 }
 
 main {
-  background: url("../img/wavy-bg.jpg");
+  background: url("../img/wavy-bg.jpg") no-repeat center / cover;
   width: 100%;
   min-height: 90vh;
   padding: 80px 15px;
@@ -418,6 +418,60 @@ ol.a li:not(:last-child) {
   cursor: pointer;
 }
 
+.payment-popup {
+  background: #ffffff;
+  box-shadow: 0 0 6px 3px rgba(0,0,0,0.05);
+  width: 80%;
+  height: 400px;
+  padding: 5%;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 15px;
+  position: fixed;
+  top: 22vh;
+  left: 10%;
+  z-index: -1;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.payment-popup.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 9;
+}
+
+main:has(.payment-popup.active)::after {
+  content: "";
+  background: #00000080;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.payment-popup .title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.payment-popup .content {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.payment-popup .confirm-payment {
+  background: #45BC2D;
+  color: #D4FFCB;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 footer {
   color: #EBEBEB;
   width: 100%;
@@ -430,6 +484,7 @@ footer {
   width: 100%;
   max-width: 400px;
   margin: auto;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -444,4 +499,34 @@ footer {
 
 .footer-banner span {
   font-size: 25px;
+  font-family: "msd", serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.footer-links a {
+  color: #E8F2FF;
+  font-size: 18px;
+  font-family: "msd", serif;
+  text-decoration: none;
+}
+
+.footer-attribution {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-attribution span {
+  font-size: 18px;
+  opacity: .5;
 }
