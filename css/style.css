@@ -12,6 +12,7 @@ body {
   border: 0;
   outline: 0;
   font-family: "sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -104,8 +105,7 @@ header img {
 header .sitename {
   font-size: 20px;
   font-family: "mc", serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .landing {
@@ -344,10 +344,59 @@ main::before {
   gap: 10px;
 }
 
+.funds-transfer-progress {
+  display: none;
+}
+
+.funds-transfer-progress.active {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 15px;
+}
+
+main:has(.funds-transfer-progress.active) .fund-details--title,
+main:has(.funds-transfer-progress.active) .fund-details, 
+main:has(.funds-transfer-progress.active) .fund-agreement {
+  display: none;
+}
+
+.funds-transfer-progress span {
+  line-height: 1.5;
+}
+
+.funds-transfer-progress .title {
+  font-size: 25px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+}
+
+.funds-transfer-progress .content {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.funds-transfer-progress .report-issue {
+  background: #ffffff;
+  color: #20287B;
+  box-shadow: inset 0 0 0 2px #20287B;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.fund-details--title {
+  display: grid;
+}
+
 .fund-details {
   font-size: 15px;
   letter-spacing: -0.5px;
-  border-radius: 4px;
   width: 100%;
   padding: 0 18px 0;
   display: grid;
@@ -359,8 +408,7 @@ main::before {
 
 .fund-details::before {
   content: "";
-  border-radius: 4px;
-  background: #5A855D90;
+  background: #20287B90;
   width: 20px;
   height: 100%;
   position: absolute;
@@ -383,7 +431,6 @@ main::before {
   justify-content: space-between;
   font-size: 16px;
   font-weight: 400;
-  font-family: "msd", serif;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -538,7 +585,7 @@ footer {
 }
 
 .footer-banner img {
-  width: 120px;
+  width: 80px;
   height: auto;
   border-radius: 100%;
 }

