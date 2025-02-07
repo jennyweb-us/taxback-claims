@@ -272,7 +272,7 @@ header .sitename {
 }
 
 main {
-  background: url("../img/wavy_lines_pattern_background.jpg") no-repeat center center / cover;
+  background: url("../img/main-bg.jpg") no-repeat center / cover;
   width: 100%;
   min-height: 90vh;
   padding: 80px 15px;
@@ -410,10 +410,12 @@ ol.a li:not(:last-child) {
   font-weight: 400;
   letter-spacing: 0.5px;
   background: #20287B;
+  box-shadow: 0 0 0 2px #20287B;
   color: #ffffff;
   width: 80%;
   padding: 10px 16px;
   margin: 0 10%;
+  border: 1px solid #fff;
   cursor: pointer;
 }
 
@@ -422,23 +424,26 @@ ol.a li:not(:last-child) {
   box-shadow: 0 0 6px 3px rgba(0,0,0,0.05);
   width: 90%;
   max-width: 600px;
-  min-height: 300px;
+  height: 330px;
   padding: 5%;
   display: grid;
   grid-auto-flow: row;
   gap: 15px;
   position: fixed;
-  top: 24vh;
+  top: 20vh;
   left: 5%;
   z-index: -1;
   text-align: center;
   opacity: 0;
   visibility: hidden;
+  overflow-y: auto;
 }
 
 @media screen and (min-width: 700px) {
   .payment-popup {
     width: 100%;
+    height: auto;
+    min-height: 300px;
     left: 19%;
   }
 }
@@ -473,9 +478,22 @@ main:has(.payment-popup.active)::after {
 }
 
 .payment-popup .confirm-payment {
+  background: #95959550;
+  color: #27272790;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.payment-popup .proceed {
   background: #20287B;
+  box-shadow: 0 0 0 2px #20287B;
   color: #ffffff;
   padding: 10px 16px;
+  border: 1px solid #ffffff;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.5px;
@@ -486,14 +504,14 @@ footer {
   color: #EBEBEB;
   width: 100%;
   min-height: 10vh;
-  padding: 10%;
+  padding: 10% 0;
   border-top: 1px solid #EBEBEB20;
 }
 
 .footer-banner {
   width: 100%;
-  max-width: 400px;
-  margin: auto;
+  padding: 0 10% 25px;
+  border-bottom: 1px solid #ffffff50;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
@@ -516,17 +534,19 @@ footer {
 
 .footer-links {
   width: 100%;
+  padding: 0 0 30px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
   flex-direction: column;
+  border-bottom: 1px solid #ffffff50;
 }
 
 .footer-links a {
   color: #E8F2FF;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "msd", serif;
   text-decoration: none;
 }
@@ -537,6 +557,7 @@ footer {
 }
 
 .footer-attribution span {
-  font-size: 18px;
+  font-size: 16px;
+  font-family: "msd", serif;
   opacity: .5;
 }

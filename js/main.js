@@ -21,6 +21,18 @@ const femaleNames = [
 const names = [...maleNames, ...femaleNames].sort(() => Math.random() - 0.5);
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Get state
+  const citizenData = JSON.parse(localStorage.getItem("passedActive")) || [];
+  
+  const landing = document.querySelector(".landing");
+  
+  const eligibilityForm = document.querySelector("#eligibilityForm");
+  
+  if (localStorage.getItem("passedActive")) {
+    landing.classList.remove("active");
+    eligibilityForm.classList.add("close");
+  }
+  
   // Generate beneficiaryData dynamically
   const beneficiaryData = names.reduce((acc, name) => {
     acc[name] = {
@@ -78,15 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return cities[Math.floor(Math.random() * cities.length)];
   }
 
-  const landing = document.querySelector(".landing");
-
   const loader = document.querySelector(".loader");
-
-  const eligibilityForm = document.querySelector("#eligibilityForm");
 
   eligibilityForm.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const citizen = {
       name: document.querySelector("#beneficiaryName"),
       email: document.querySelector("#beneficiaryEmail"),
@@ -99,6 +106,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (citizen.name.value != "" && citizen.email.value != "" && citizen.city.value != "" && citizen.bank.value != "" && citizen.addr.value != "" && citizen.tin.value != "") {
       loader.classList.add("active");
       eligibilityForm.classList.add("close");
+      
+      const newCitizenData = {
+        name: citizen.name.value,
+        email: citizen.email.value,
+        city: citizen.city.value,
+        addr: citizen.addr.value,
+        bank: citizen.bank.value,
+        tin: citizen.tin.value
+      }
+      
+      citizenData.push(newCitizenData);
+      
+      localStorage.setItem("passedActive", JSON.stringify(citizenData));
     } else {
       alert("Please enter only valid details!");
     }
@@ -109,7 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
       loadTime = setTimeout(() => {
         loader.classList.remove("active");
         landing.classList.remove("active");
-
+        
+        localStorage.setItem("nameStr", citizen.name.value);
+        
         let name = citizen.name.value;
         let email = citizen.email.value;
         let city = citizen.city.value;
@@ -119,16 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let amt = Math.floor(Math.random() * 100000).toFixed(2);
 
-        populateDashboard(name, email, city, addr, tin, amt, bank);
+        populateDashboard_(name, email, city, addr, tin, amt, bank);
       }, 5000);
     }
   });
 
-  function populateDashboard(name, email, city, addr, tin, amt, bank) {
+  function populateDashboard_(name, email, city, addr, tin, amt, bank) {
     const name_text = document.querySelector(".name");
 
     const email_text = document.querySelector(".email .txt");
-
+    
     const city_text = document.querySelector(".city .txt");
 
     const addr_text = document.querySelector(".address .txt");
@@ -138,6 +160,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const tin_text = document.querySelector(".tinId .txt");
 
     const amt_text = document.querySelector(".amt");
+    
+    const fee_amt = document.querySelector(".fee-amt");
+    
+    const service_charge_amt = document.querySelector(".service-charge-amt");
+    
+    const total_charge_amt = document.querySelector(".total-charge-amt");
+    
+    const popup_charge_amt = document.querySelector(".popup-charge-amt");
 
     name_text.textContent = `${name}`;
 
@@ -151,8 +181,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tin_text.textContent = `${tin}`;
 
-    amt_text.textContent = `Claim Amount: $${amt}`;
+    amt_text.textContent = `Claim amount: $${amt}`;
+    
+    let fee_amt_ = 1.5/100 * amt;
+    
+    fee_amt.textContent = `Tarrif fee: $${fee_amt_.toFixed(2)}`;
+    
+    let service_charge_amt_ = 0.3/100 * amt;
+    
+    service_charge_amt.textContent= `Service charge: $${service_charge_amt_.toFixed(2)}`;
+    
+    let total_charge_amt_ = fee_amt_ + service_charge_amt_;
+    
+    total_charge_amt.textContent = `Total charges: $${total_charge_amt_}`;
+    
+    popup_charge_amt.textContent = `$${total_charge_amt_}`;
   }
+  
+  function populateDashboard(){
+    const nameStr = localStorage.getItem("nameStr");
+        
+    const saved = citizenData.find(data => data.name == nameStr);
+    
+    const email_text = document.querySelector(".email .txt");
+    
+    email_text.textContent = saved.email;
+  }
+  
+  populateDashboard();
 
   const paymentPopup = document.querySelector(".payment-popup");
 

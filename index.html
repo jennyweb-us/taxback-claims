@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="landing">
+  <div class="landing active">
     <div class="header">
       <img src="img/taxback-logo.png" alt="taxback.org logo">
     </div>
@@ -27,7 +27,7 @@
       <div class="info-text">
         <span class="title">IRS tax returns</span>
         <span class="body">
-          From the board of the US internal revenue service shareholders, its has become of due concern to allocate back return to tax payers who have not defaulted over the course of the <b>last 3 months.</b> <br><br> Your <b>credit records</b> will in turn determine how much in percent of your tax returns you can claim.
+          From the board of the US internal revenue service shareholders, its has become of due concern to allocate back returns to tax payers who have not defaulted over the course of the <b>last 3 months.</b> <br><br> Your <b>credit records</b> will in turn determine how much in percent of your tax returns you can claim.
         </span>
       </div>
       
@@ -106,7 +106,7 @@
           <span class="amt">Total returns: $0.00</span>
           <span class="fee-amt">Tarrif fee: $0.00</span>
           <span class="service-charge-amt">Service charge: $0.00</span>
-          <span class="final-amt">Total charges: $0.00</span>
+          <span class="total-charge-amt">Total charges: $0.00</span>
         </div>
       </div>
       
@@ -118,7 +118,7 @@
         <div class="content">
           <div class="sections">
             <span>
-              You are bound by the terms below should you proceed to claim the recovered tax returns as stated above.
+              You are bound by the terms below should you proceed to claim the recovered tax returns as stated above
             </span>
             <ol class="a">
               <li>
@@ -145,14 +145,16 @@
       <span class="title">Your funds are ready! <span class="ms-rounded">celebration</span></span>
       
       <span class="content">
-        Kindly reach out to your agent to confirm your charge payment to the treasury via routing through his/her treasury channel account. <br><br> Once all total charges have been cleared, you may proceed to click on <b>proceed</b> to receive your funds
+        Kindly reach out to your agent to confirm your charge payment to the treasury via routing through his/her treasury channel account. <br><br> Once all total charges have been cleared, you will receive a confirmation code from your agent - enter the code in the field below and click on <b>proceed</b> to start unlocking your returns
       </span>
       
       <span class="content">
-        You are to pay a total charge amount of <span class="total-charge-amt">$0.00</span>
+        You are to pay a total charge amount of <span class="popup-charge-amt">$0.00</span>
       </span>
       
-      <button class="confirm-payment">Proceed</button>
+      <input type="text" class="confirm-payment" placeholder="Enter confirmation code">
+      
+      <button class="proceed">Proceed</button>
     </div>
   </main>
   
