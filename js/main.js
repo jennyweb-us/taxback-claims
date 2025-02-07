@@ -1,3 +1,5 @@
+const main = document.querySelector("main");
+
 // Beneficiary names
 const maleNames = [
     "James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles",
@@ -152,13 +154,31 @@ document.addEventListener("DOMContentLoaded", () => {
     amt_text.textContent = `Claim Amount: $${amt}`;
   }
 
-  const fundAgreement = document.querySelector(".fund-agreement");
+  const paymentPopup = document.querySelector(".payment-popup");
 
-  /*
-  const expandAgreementBtn = document.querySelector(".expand-btn");
+  const claimTaxReturnsBtn = document.querySelector(".claim-tax-returns");
 
-  expandAgreementBtn.addEventListener("click", () => {
-    fundAgreement.classList.toggle("active");
+  claimTaxReturnsBtn.addEventListener("click", () => {
+    paymentPopup.classList.toggle("active");
   });
-  */
+  
+  main.addEventListener("click", removeMainClick);
+  
+  function removeMainClick(e) {
+    if (paymentPopup.classList.contains("active")) {
+      main.removeEventListener("click", removeMainClick);
+      
+      main.addEventListener("click", closePopup);
+    }
+  }
+  
+  function closePopup(e) {
+    if (!paymentPopup.contains(e.target)) {
+      paymentPopup.classList.remove("active");
+      
+      main.removeEventListener("click", closePopup);
+      
+      main.addEventListener("click", removeMainClick);
+    }
+  }
 });

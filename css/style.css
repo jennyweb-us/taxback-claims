@@ -261,10 +261,9 @@ header .sitename {
 .landing form input[type="submit"] {
   background: #20287B;
   color: #ffffff;
-  width: 80%;
+  width: 100%;
   border: 0;
   padding: 9px 16px!important;
-  margin-left: 10%;
   margin-top: 10px;
   margin-bottom: 0;
   font-weight: 400;
@@ -406,14 +405,14 @@ ol.a li:not(:last-child) {
   overflow: auto;
 }
 
-.claim-btn {
+.claim-tax-returns {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.5px;
-  background: #46BC42;
-  color: #DFFFDD;
+  background: #20287B;
+  color: #ffffff;
   width: 80%;
-  padding: 12px 24px;
+  padding: 10px 16px;
   margin: 0 10%;
   cursor: pointer;
 }
@@ -421,19 +420,27 @@ ol.a li:not(:last-child) {
 .payment-popup {
   background: #ffffff;
   box-shadow: 0 0 6px 3px rgba(0,0,0,0.05);
-  width: 80%;
-  height: 400px;
+  width: 90%;
+  max-width: 600px;
+  min-height: 300px;
   padding: 5%;
   display: grid;
   grid-auto-flow: row;
   gap: 15px;
   position: fixed;
-  top: 22vh;
-  left: 10%;
+  top: 24vh;
+  left: 5%;
   z-index: -1;
   text-align: center;
   opacity: 0;
   visibility: hidden;
+}
+
+@media screen and (min-width: 700px) {
+  .payment-popup {
+    width: 100%;
+    left: 19%;
+  }
 }
 
 .payment-popup.active {
@@ -444,7 +451,8 @@ ol.a li:not(:last-child) {
 
 main:has(.payment-popup.active)::after {
   content: "";
-  background: #00000080;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -465,11 +473,13 @@ main:has(.payment-popup.active)::after {
 }
 
 .payment-popup .confirm-payment {
-  background: #45BC2D;
-  color: #D4FFCB;
+  background: #20287B;
+  color: #ffffff;
   padding: 10px 16px;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
 footer {
