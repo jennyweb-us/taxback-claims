@@ -383,7 +383,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearCitizenData = document.querySelector("nav .navlink#clearData");
   
   clearCitizenData.addEventListener("click", () => {
-    loader.classList.add("active");
+    nav.classList.remove("active");
+    
+    const loader_ = document.createElement("div");
+    loader_.classList.add("loader");
+    loader_.classList.add("active");
+    loader_.innerHTML = `
+      <span class="rotate ms-rounded">globe</span>
+      <span class="message">Removing your data, please wait...</span>
+    `;
+    main.insertAdjacentHTML("afterbegin", loader_.outerHTML);
     
     localStorage.removeItem("passedActive");
     localStorage.removeItem("amt");
@@ -391,6 +400,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     setTimeout(() => {
       location.reload();
-    }, 2000);
+    }, 5000);
   });
 });
