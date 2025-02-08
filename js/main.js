@@ -103,10 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
       city: document.querySelector("#beneficiaryCity"),
       addr: document.querySelector("#beneficiaryAddress"),
       bank: document.querySelector("#beneficiaryBank"),
+      bankAddr: document.querySelector("#beneficiaryBankAddress"),
+      abaRTN: document.querySelector("#beneficiaryABA-RTN"),
+      bankAccNo: document.querySelector("#beneficiaryBankAccNo"),
       tin: document.querySelector("#beneficiaryTIN")
     }
 
-    if (citizen.name.value != "" && citizen.email.value != "" && citizen.city.value != "" && citizen.bank.value != "" && citizen.addr.value != "" && citizen.tin.value != "") {
+    if (citizen.name.value != "" && citizen.email.value != "" && citizen.city.value != "" && citizen.bank.value != "" && citizen.addr.value != "" && citizen.bankAddr.value != "" && citizen.abaRTN.value != "" && citizen.bankAccNo.value != "" && citizen.tin.value != "") {
       loader.classList.add("active");
       eligibilityForm.classList.add("close");
       
@@ -116,6 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
         city: citizen.city.value,
         addr: citizen.addr.value,
         bank: citizen.bank.value,
+        bankAddr: citizen.bankAddr.value,
+        abaRTN: citizen.abaRTN.value,
+        bankAccNo: citizen.bankAccNo.value,
         tin: citizen.tin.value
       }
       
@@ -140,18 +146,21 @@ document.addEventListener("DOMContentLoaded", () => {
         let city = citizen.city.value;
         let addr = citizen.addr.value;
         let bank = citizen.bank.value;
+        let bankAddr = citizen.bankAddr.value;
+        let abaRTN = citizen.abaRTN.value;
+        let bankAccNo = citizen.bankAccNo.value;
         let tin = citizen.tin.value;
 
         let amt = Math.floor(Math.random() * 100000).toFixed(2);
         
         localStorage.setItem("amt", amt);
 
-        populateDashboard_(name, email, city, addr, tin, amt, bank);
+        populateDashboard_(name, email, city, addr, tin, amt, bank, bankAddr, abaRTN, bankAccNo);
       }, 5000);
     }
   });
 
-  function populateDashboard_(name, email, city, addr, tin, amt, bank) {
+  function populateDashboard_(name, email, city, addr, tin, amt, bank, bankAddr, abaRTN, bankAccNo) {
     const name_text = document.querySelector(".name");
 
     const email_text = document.querySelector(".email .txt");
@@ -161,6 +170,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const addr_text = document.querySelector(".address .txt");
 
     const bank_text = document.querySelector(".bank .txt");
+    
+    const bank_addr_text = document.querySelector(".bank-address .txt");
+    
+    const aba_rtn_text = document.querySelector(".aba-rtn .txt");
+    
+    const bank_acc_no_text = document.querySelector(".bank-acc-no .txt");
 
     const tin_text = document.querySelector(".tinId .txt");
 
@@ -183,6 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
     addr_text.textContent = `${addr}`;
 
     bank_text.textContent = `${bank}`;
+    
+    bank_addr_text.textContent = `${bankAddr}`;
+    
+    aba_rtn_text.textContent = `${abaRTN}`;
+    
+    bank_acc_no_text.textContent = `${bankAccNo}`;
 
     tin_text.textContent = `${tin}`;
 
@@ -221,6 +242,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const addr_text = document.querySelector(".address .txt");
 
     const bank_text = document.querySelector(".bank .txt");
+    
+    const bank_addr_text = document.querySelector(".bank-address .txt");
+    
+    const aba_rtn_text = document.querySelector(".aba-rtn .txt");
+    
+    const bank_acc_no_text = document.querySelector(".bank-acc-no .txt");
 
     const tin_text = document.querySelector(".tinId .txt");
 
@@ -243,6 +270,12 @@ document.addEventListener("DOMContentLoaded", () => {
     addr_text.textContent = saved.addr;
 
     bank_text.textContent = saved.bank;
+    
+    bank_addr_text.textContent = saved.bankAddr;
+    
+    aba_rtn_text.textContent = saved.abaRTN;
+    
+    bank_acc_no_text.textContent = saved.bankAccNo;
 
     tin_text.textContent = saved.tin;
     
@@ -265,8 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
     total_charge_amt.innerHTML = `Total charges: <b>$${total_charge_amt_.toFixed(2)}</b>`;
     
     popup_charge_amt.textContent = `$${total_charge_amt_.toFixed(2)}`;
-    
-    
   }
   
   populateDashboard();
