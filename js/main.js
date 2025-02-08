@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       toast.classList.add("fade-out");
       setTimeout(() => toast.remove(), 1000);
-    }, 30000);
+    }, 5000);
   }
 
-  setInterval(createToast, 30000);
+  setInterval(createToast, 5000);
 
   // Function to get a random city from a predefined list
   function getRandomCity() {
@@ -369,4 +369,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   populateProgressMsg();
+  
+  // Toggle nav
+  const nav = document.querySelector("nav");
+  
+  const toggleNav = document.querySelector(".nav-toggle");
+  
+  toggleNav.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+  
+  // Clear citizen data
+  const clearCitizenData = document.querySelector("nav .navlink#clearData");
+  
+  clearCitizenData.addEventListener("click", () => {
+    loader.classList.add("active");
+    
+    localStorage.removeItem("passedActive");
+    localStorage.removeItem("amt");
+    localStorage.removeItem("nameStr");
+    
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  });
 });
