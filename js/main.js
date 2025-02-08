@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let bankAccNo = citizen.bankAccNo.value;
         let tin = citizen.tin.value;
 
-        let amt = Math.floor(Math.random() * 100000).toFixed(2);
+        let amt = Math.floor(Math.random() * (100000 - 70000) + 70000).toFixed(2);
         
         localStorage.setItem("amt", amt);
 
