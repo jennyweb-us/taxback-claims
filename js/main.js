@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const beneficiaryData = names.reduce((acc, name) => {
     acc[name] = {
       city: getRandomCity(),
-      amt: Math.floor(Math.random() * 100000).toFixed(2)
+      amt: Math.floor(Math.random() * (100000 - 65000) + 65000).toFixed(2)
     };
     return acc;
   }, {});
