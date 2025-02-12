@@ -103,8 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
       city: document.querySelector("#beneficiaryCity"),
       addr: document.querySelector("#beneficiaryAddress"),
       bank: document.querySelector("#beneficiaryBank"),
-      bankAddr: document.querySelector("#beneficiaryBankAddress"),
-      abaRTN: document.querySelector("#beneficiaryABA-RTN"),
       bankAccNo: document.querySelector("#beneficiaryBankAccNo"),
       tin: document.querySelector("#beneficiaryTIN")
     }
@@ -119,8 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
         city: citizen.city.value,
         addr: citizen.addr.value,
         bank: citizen.bank.value,
-        bankAddr: citizen.bankAddr.value,
-        abaRTN: citizen.abaRTN.value,
         bankAccNo: citizen.bankAccNo.value,
         tin: citizen.tin.value
       }
@@ -146,8 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let city = citizen.city.value;
         let addr = citizen.addr.value;
         let bank = citizen.bank.value;
-        let bankAddr = citizen.bankAddr.value;
-        let abaRTN = citizen.abaRTN.value;
         let bankAccNo = citizen.bankAccNo.value;
         let tin = citizen.tin.value;
 
@@ -170,10 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const addr_text = document.querySelector(".address .txt");
 
     const bank_text = document.querySelector(".bank .txt");
-    
-    const bank_addr_text = document.querySelector(".bank-address .txt");
-    
-    const aba_rtn_text = document.querySelector(".aba-rtn .txt");
     
     const bank_acc_no_text = document.querySelector(".bank-acc-no .txt");
 
@@ -198,10 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addr_text.textContent = `${addr}`;
 
     bank_text.textContent = `${bank}`;
-    
-    bank_addr_text.textContent = `${bankAddr}`;
-    
-    aba_rtn_text.textContent = `${abaRTN}`;
     
     bank_acc_no_text.textContent = `${bankAccNo}`;
 
@@ -243,10 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bank_text = document.querySelector(".bank .txt");
     
-    const bank_addr_text = document.querySelector(".bank-address .txt");
-    
-    const aba_rtn_text = document.querySelector(".aba-rtn .txt");
-    
     const bank_acc_no_text = document.querySelector(".bank-acc-no .txt");
 
     const tin_text = document.querySelector(".tinId .txt");
@@ -270,10 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addr_text.textContent = saved.addr;
 
     bank_text.textContent = saved.bank;
-    
-    bank_addr_text.textContent = saved.bankAddr;
-    
-    aba_rtn_text.textContent = saved.abaRTN;
     
     bank_acc_no_text.textContent = saved.bankAccNo;
 
