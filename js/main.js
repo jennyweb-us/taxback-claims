@@ -152,12 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
         localStorage.setItem("amt", amt);
 
-        populateDashboard_(name, email, city, addr, tin, amt, bank, bankAddr, abaRTN, bankAccNo);
+        populateDashboard_(name, email, city, addr, tin, amt, bank, bankAccNo);
       }, 5000);
     }
   });
 
-  function populateDashboard_(name, email, city, addr, tin, amt, bank, bankAddr, abaRTN, bankAccNo) {
+  function populateDashboard_(name, email, city, addr, tin, amt, bank, bankAccNo) {
     const name_text = document.querySelector(".name");
 
     const email_text = document.querySelector(".email .txt");
@@ -324,6 +324,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       paymentTimeout = setTimeout(() => {
         window.location.href = "/payment-sent.html";
+        
+        const amt = localStorage.getItem("amt");
+        const tf_progress_msg = document.querySelector(".funds-transfer-progress .content");
+        tf_progress_msg.innerHTML = `$${amt} has been sent to your account.`;
+        
         clearTimeout(paymentTimeout);
       }, 5000);
 

@@ -120,6 +120,10 @@ header .sitename {
   font-size: 20px;
   font-family: "sans", sans-serif;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
 }
 
 nav {
