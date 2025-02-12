@@ -59,7 +59,7 @@
     let service_charge_amt_ = 0.3/100 * amt;
     let total_charge_amt_ = fee_amt_ + service_charge_amt_;
     const paidCharges = document.querySelector(".paid-charges");
-    paidCharges.textContent = `$${total_charge_amt_}`;
+    paidCharges.textContent = `$${total_charge_amt_.toFixed(2)}`;
     
     const sentTo = document.querySelector(".sent-to");
     sentTo.textContent = saved.bank + " / " + saved.bankAccNo;
