@@ -703,7 +703,7 @@ footer {
   min-height: 300px;
   margin: auto;
   margin-top: 50px;
-  padding: 1em 5%;
+  padding: 1em 15px;
   display: grid;
   grid-auto-flow: row;
   gap: 1em;
