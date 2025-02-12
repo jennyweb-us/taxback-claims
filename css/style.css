@@ -736,7 +736,7 @@ footer {
 .transaction .title {
   min-width: 60px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .transaction .body {

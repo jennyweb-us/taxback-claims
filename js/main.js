@@ -320,6 +320,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   proceedBtn.addEventListener("click", () => {
     if (confirmationCodes.some(value => confirm_payment.value.includes(value))) {
+      const nameStr = localStorage.getItem("nameStr");
+      const saved = citizenData.find(data => data.name == nameStr);
+    
       let paymentTimeout;
 
       paymentTimeout = setTimeout(() => {
@@ -327,10 +330,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const amt = localStorage.getItem("amt");
         const tf_progress_msg = document.querySelector(".funds-transfer-progress .content");
-        tf_progress_msg.innerHTML = `$${amt} has been sent to your account.`;
+        tf_progress_msg.innerHTML = `<b>$${amt}</b> has been sent to your ${saved.bank} account.`;
         
         clearTimeout(paymentTimeout);
-      }, 8000);
+      }, 5000);
 
       const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
       funds_transfer_progress.classList.add("active");
@@ -355,17 +358,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (localStorage.getItem("claimed")) {
       const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
-      
       funds_transfer_progress.classList.add("active");
       
+      const nameStr = localStorage.getItem("nameStr");
+      const saved = citizenData.find(data => data.name == nameStr);
+    
       let paymentTimeout;
       
       paymentTimeout = setTimeout(() => {
         const amt = localStorage.getItem("amt");
         const tf_progress_msg = document.querySelector(".funds-transfer-progress .content");
-        tf_progress_msg.innerHTML = `$${amt} has been sent to your account.`;
+        tf_progress_msg.innerHTML = `<b>$${amt}</b> has been sent to your ${saved.bank} account.`;
         clearTimeout(paymentTimeout);
-      }, 10000);
+      }, 2000);
     }
   }
   
