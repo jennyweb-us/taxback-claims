@@ -698,7 +698,8 @@ footer {
 
 .success-modal {
   background: #ffffff;
-  width: 80%;
+  width: 100%;
+  max-width: 800px;
   height: auto;
   min-height: 300px;
   margin: auto;
