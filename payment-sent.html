@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/taxback-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="icon/icon.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+  
+  <title>Taxback - Payment sent</title>
+</head>
+
+<body>
+  <div class="success-modal">
+    <span class="title">Payment has been sent! <span class="ms-rounded">celebration</span></span>
+    <span class="content">
+      View the transaction details below
+    </span>
+    <div class="transaction-details">
+      <div class="transaction">
+        <span class="title">Sent from:</span>
+        <span class="body">Taxback.irs.gov/treasury</span>
+      </div>
+      
+      <div class="transaction">
+        <span class="title">Sent amount:</span>
+        <span class="body send-amt"></span>
+      </div>
+      
+      <div class="transaction">
+        <span class="title">Paid charges:</span>
+        <span class="body paid-charges"></span>
+      </div>
+      
+      <div class="transaction">
+        <span class="title">Recipient</span>
+        <span class="body sent-to"></span>
+      </div>
+      
+      <div class="transaction">
+        <span class="title">Date:</span>
+        <span class="body send-date"></span>
+      </div>
+    </div>
+    <button id="continueBtn">Continue</button>
+  </div>
+  
+  <script>
+    const citizenData = JSON.parse(localStorage.getItem("passedActive")) || [];
+    
+    const nameStr = localStorage.getItem("nameStr");
+    const saved = citizenData.find(data => data.name == nameStr);
+    const amt = localStorage.getItem("amt");
+    const sendAmt = document.querySelector(".send-amt");
+    sendAmt.textContent = `$${amt}`;
+    
+    let fee_amt_ = 1.5/100 * amt;
+    let service_charge_amt_ = 0.3/100 * amt;
+    let total_charge_amt_ = fee_amt_ + service_charge_amt_;
+    const paidCharges = document.querySelector(".paid-charges");
+    paidCharges.textContent = `$${total_charge_amt_}`;
+    
+    const sentTo = document.querySelector(".sent-to");
+    sentTo.textContent = saved.bank + " / " + saved.bankAccNo;
+    
+    const sendDate = document.querySelector(".send-date");
+    let date = new Date();
+    sendDate.textContent = date.toLocaleString();
+    
+    const continueBtn = document.getElementById("continueBtn");
+    continueBtn.addEventListener("click", () => {
+      window.location.href = "/";
+    });
+  </script>
+  
+  <script src="js/main.js"></script>
+</body>
+
+</html>

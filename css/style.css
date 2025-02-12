@@ -691,3 +691,61 @@ footer {
   font-size: 16px;
   opacity: .5;
 }
+
+.success-modal {
+  background: #ffffff;
+  width: 80%;
+  height: auto;
+  min-height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 1em 5%;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1em;
+}
+
+.success-modal .title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.transaction-details {
+  width: 100%;
+  padding: 0 10px;
+  border-left: 1px solid #00000050;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+}
+
+.transaction {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  opacity: .8;
+}
+
+.transaction .title {
+  min-width: 60px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.transaction .body {
+  font-size: 12px;
+}
+
+.success-modal button {
+  background: #20287B;
+  color: #ffffff;
+  box-shadow: 0 0 0 2px #20287B;
+  border: 1px solid #fff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  padding: 8px 16px;
+}

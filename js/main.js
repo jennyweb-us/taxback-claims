@@ -339,7 +339,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   proceedBtn.addEventListener("click", () => {
     if (confirmationCodes.some(value => confirm_payment.value.includes(value))) {
-      alert("Confirmation successful! 🎉");
+      let paymentTimeout;
+
+      paymentTimeout = setTimeout(() => {
+        window.location.href = "/payment-sent.html";
+        clearTimeout(paymentTimeout);
+      }, 5000);
+
       const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
       funds_transfer_progress.classList.add("active");
       paymentPopup.classList.remove("active");
@@ -397,6 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("passedActive");
     localStorage.removeItem("amt");
     localStorage.removeItem("nameStr");
+    localStorage.removeItem("claimed");
     
     setTimeout(() => {
       location.reload();
