@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tf_progress_msg.innerHTML = `$${amt} has been sent to your account.`;
         
         clearTimeout(paymentTimeout);
-      }, 5000);
+      }, 8000);
 
       const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
       funds_transfer_progress.classList.add("active");
@@ -357,6 +357,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const funds_transfer_progress = document.querySelector(".funds-transfer-progress");
       
       funds_transfer_progress.classList.add("active");
+      
+      let paymentTimeout;
+      
+      paymentTimeout = setTimeout(() => {
+        const amt = localStorage.getItem("amt");
+        const tf_progress_msg = document.querySelector(".funds-transfer-progress .content");
+        tf_progress_msg.innerHTML = `$${amt} has been sent to your account.`;
+        clearTimeout(paymentTimeout);
+      }, 10000);
     }
   }
   
