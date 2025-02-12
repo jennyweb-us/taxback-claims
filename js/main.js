@@ -107,7 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
       tin: document.querySelector("#beneficiaryTIN")
     }
 
-    if (citizen.name.value != "" && citizen.email.value != "" && citizen.city.value != "" && citizen.bank.value != "" && citizen.addr.value != "" && citizen.bankAddr.value != "" && citizen.abaRTN.value != "" && citizen.bankAccNo.value != "" && citizen.tin.value != "") {
+    if (citizen.name.value != "" && citizen.email.value != "" 
+    && citizen.city.value != "" && citizen.bank.value != "" 
+    && citizen.addr.value != "" && citizen.bankAccNo.value != "" 
+    && citizen.tin.value != "") {
       loader.classList.add("active");
       eligibilityForm.classList.add("close");
       
