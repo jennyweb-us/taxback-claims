@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   // Confirmation codes
-  const confirmationCodes = ["345100FZC", "777345YMC", "280000SDF", "893943AAC"];
+  const confirmationCodes = ["126130FZC", "777345YMC", "280000SDF", "893943AAC"];
   
   const confirm_payment = document.querySelector(".confirm-payment");
   
