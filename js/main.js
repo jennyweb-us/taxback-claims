@@ -103,14 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
       city: document.querySelector("#beneficiaryCity"),
       addr: document.querySelector("#beneficiaryAddress"),
       bank: document.querySelector("#beneficiaryBank"),
+      bankRtNo: document.querySelector("#beneficiaryBankRtNo"),
       bankAccNo: document.querySelector("#beneficiaryBankAccNo"),
       tin: document.querySelector("#beneficiaryTIN")
     }
 
     if (citizen.name.value != "" && citizen.email.value != "" 
     && citizen.city.value != "" && citizen.bank.value != "" 
-    && citizen.addr.value != "" && citizen.bankAccNo.value != "" 
-    && citizen.tin.value != "") {
+    && citizen.addr.value != "" && citizen.bankRtNo.value != "" 
+    && citizen.bankAccNo.value != "" && citizen.tin.value != "") {
       loader.classList.add("active");
       eligibilityForm.classList.add("close");
       
@@ -120,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         city: citizen.city.value,
         addr: citizen.addr.value,
         bank: citizen.bank.value,
+        bankRtNo: citizen.bankRtNo.value,
         bankAccNo: citizen.bankAccNo.value,
         tin: citizen.tin.value
       }
@@ -145,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let city = citizen.city.value;
         let addr = citizen.addr.value;
         let bank = citizen.bank.value;
+        let bankRtNo = citizen.bankRtNo.value;
         let bankAccNo = citizen.bankAccNo.value;
         let tin = citizen.tin.value;
 
@@ -152,12 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
         localStorage.setItem("amt", amt);
 
-        populateDashboard_(name, email, city, addr, tin, amt, bank, bankAccNo);
+        populateDashboard_(name, email, city, addr, tin, amt, bank, bankRtNo, bankAccNo);
       }, 5000);
     }
   });
 
-  function populateDashboard_(name, email, city, addr, tin, amt, bank, bankAccNo) {
+  function populateDashboard_(name, email, city, addr, tin, amt, bank, bankRtNo, bankAccNo) {
     const name_text = document.querySelector(".name");
 
     const email_text = document.querySelector(".email .txt");
@@ -168,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bank_text = document.querySelector(".bank .txt");
     
+    const bank_rt_no_text = document.querySelector(".bank-rt-no .txt");
+
     const bank_acc_no_text = document.querySelector(".bank-acc-no .txt");
 
     const tin_text = document.querySelector(".tinId .txt");
@@ -191,6 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
     addr_text.textContent = `${addr}`;
 
     bank_text.textContent = `${bank}`;
+    
+    bank_rt_no_text.textContent = `${bankRtNo}`;
     
     bank_acc_no_text.textContent = `${bankAccNo}`;
 
@@ -232,6 +239,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bank_text = document.querySelector(".bank .txt");
     
+    const bank_rt_no_text = document.querySelector(".bank-rt-no .txt");
+    
     const bank_acc_no_text = document.querySelector(".bank-acc-no .txt");
 
     const tin_text = document.querySelector(".tinId .txt");
@@ -255,6 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
     addr_text.textContent = saved.addr;
 
     bank_text.textContent = saved.bank;
+    
+    bank_rt_no_text.textContent = saved.bankRtNo;
     
     bank_acc_no_text.textContent = saved.bankAccNo;
 
