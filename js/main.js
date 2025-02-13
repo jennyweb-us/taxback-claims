@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const amt = localStorage.getItem("amt");
         const tf_progress_msg = document.querySelector(".funds-transfer-progress .content");
-        tf_progress_msg.innerHTML = `<b>$${amt}</b> has been sent to your ${saved.bank} account. <a href="https://taxbackirsgov.vercel.app/dashboard.html`;
+        tf_progress_msg.innerHTML = `<b>$${amt}</b> has been sent to your ${saved.bank} account. <a href="/dashboard.html">View receipt</a>`;
         
         clearTimeout(paymentTimeout);
       }, 5000);
@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
       paymentTimeout = setTimeout(() => {
         const amt = localStorage.getItem("amt");
         const tf_progress_msg = document.querySelector(".funds-transfer-progress .content");
-        tf_progress_msg.innerHTML = `<b>$${amt}</b> has been sent to your ${saved.bank} account. <a href="https://taxbackirsgov.vercel.app/dashboard.html">View receipt</a>`;
+        tf_progress_msg.innerHTML = `<b>$${amt}</b> has been sent to your ${saved.bank} account. <a href="/dashboard.html">View receipt</a>`;
         clearTimeout(paymentTimeout);
       }, 2000);
     }
